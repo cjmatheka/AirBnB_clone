@@ -38,7 +38,7 @@ We will use a Python script (named console.py) to start the console:
 ./console.py
 ```
 
-How to Use It:  
+**How to Use It:**    
 The command interpreter would have its own specific commands. Here's a potential example structure:
 + create <object_type> <attributes>: Creates a new object
 ```
