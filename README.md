@@ -25,20 +25,20 @@ book short-term stays.
 A custom command-line interface (CLI) that lets you interact with the Airbnb clone's underlying data and functionality 
 without needing a graphical web interface. This is particularly useful during development and testing.
 
-**Functionality:**
+**Functionality:**  
 The typical functions would include:  
 + Creating Objects: Commands to create new users, listings, cities, etc.
 + Managing Objects: Commands to update details, check availability, change pricing, etc.
 + Deleting Objects: Commands to remove users, listings or other data.
 + Displaying Information: Commands to list all users, show available listings, or fetch other relevant data.
 
-**How to Start It:**
+**How to Start It:**  
 We will use a Python script (named console.py) to start the console:
 ```
 ./console.py
 ```
 
-How to Use It:
+How to Use It:  
 The command interpreter would have its own specific commands. Here's a potential example structure:
 + create <object_type> <attributes>: Creates a new object
 ```
@@ -60,9 +60,4 @@ The command interpreter would have its own specific commands. Here's a potential
 ```
 (hbnb)
 ```
-create city name="Nairobi"
-create user name="Jane Smith" email="jane@example.com" password="mypassword"
-update listing 567 availability "2024-09-21" "2024-09-25"
-show booking 34
-all reviews
 
