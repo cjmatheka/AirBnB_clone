@@ -21,7 +21,7 @@ book short-term stays.
    + Facilitates communication between hosts and guests throughout the booking process.
 
 ## Command Interpreter
-**Purpose:**
+**Purpose:**  
 A custom command-line interface (CLI) that lets you interact with the Airbnb clone's underlying data and functionality 
 without needing a graphical web interface. This is particularly useful during development and testing.
 
