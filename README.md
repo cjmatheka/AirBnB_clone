@@ -1,9 +1,6 @@
 # 0x00. AirBnB clone - The console  
 This is exactly as it sounds, an airBnB clone.
 
-+ [Project Overview](##Project Overview)
-+ [Command Interpreter](##Command Interpreter)
-
 ## Project Overview 
 A web platform replicating the core features of Airbnb, allowing hosts to list their accommodations and guests to
 book short-term stays.
