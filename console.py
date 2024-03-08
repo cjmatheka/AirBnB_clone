@@ -17,8 +17,8 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     classes = {
-        "BaseModel": BaseModel, "User": User, "State": State,
-        "City": City, "Amenity": Amenity, "Place": Place, "Review": Review
+        "BaseModel": BaseModel, "user": User, "state": State,
+        "city": City, "amenity": Amenity, "place": Place, "review": Review
     }
 
     def do_create(self, arg):
