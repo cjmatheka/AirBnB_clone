@@ -38,7 +38,6 @@ class HBNBCommand(cmd.Cmd):
 
         try:
             new_instance = self.classes[args[0]]()
-            print("Instance created:", new_instance)
             new_instance.save()
             print(new_instance.id)
         except Exception as e:
@@ -123,7 +122,6 @@ class HBNBCommand(cmd.Cmd):
         if key not in storage.all():
             print("** no instance found **")
             return
-
         if len(args) == 2:
             print("** attribute name missing **")
             return

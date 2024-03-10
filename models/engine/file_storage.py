@@ -3,6 +3,7 @@
 """ File Storage Class """
 
 import json
+from datetime import datetime
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -36,19 +37,21 @@ class FileStorage:
         """Sets in '__objects' the 'obj' with key '<obj class name>.id'.
         Raises an exception if an object with the same key already exists.
         """
-        print("Adding object to storage:", obj)
         if obj is None:
             raise ValueError("Object not found")
 
         key = f"{obj.__class__.__name__}.{obj.id}"
         if key in self.__objects:
-            raise KeyError(f"Object with key '{key}' already exists")
-        self.__objects[key] = obj
+            existing_obj = self.__objects[key]
+            for attr, value in obj.__dict__.items():
+                if attr != 'id' and attr != 'created_at':
+                    setattr(existing_obj, attr, value)
+            existing_obj.updated_at = datetime.now()  # Update 'updated_at'
+        else:
+            self.__objects[key] = obj
 
     def save(self):
         """Serializes '__objects' to the JSON file (path: '__file_path')."""
-        print("Entering FileStorage save")
-        print("Objects right before saving:", FileStorage.__objects)
         try:
             with open(self.__file_path, "w") as f:
                 json.dump({key: obj.to_dict() for key, obj in self.__objects.items()}, f)
