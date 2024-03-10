@@ -13,34 +13,47 @@ from models.review import Review
 
 
 class FileStorage:
-    def __init__(self, file_path="file.json"):
-        self.__file_path = file_path
-        self.__objects = {}
+    """
+    Serializes instances to a JSON file and deserializes JSON file to instances.
+    """
+
+    __file_path = "file.json"
+    __objects = {}
+
+    # Mapping of class names to corresponding classes
+    CLASS_MAPPING = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review,
+    }
 
     def all(self):
-        """Return the dictionary __objects."""
+        """Returns the dictionary '__objects'."""
         return self.__objects
 
     def new(self, obj):
-        """Set in __objects the obj with key <obj class name>.id."""
-        key = obj.__class__.__name__ + "." + obj.id
+        """Sets in '__objects' the 'obj' with key '<obj class name>.id'."""
+        key = f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[key] = obj
 
     def save(self):
-        """Serialize __objects to the JSON file."""
-        obj_dict = {key: obj.to_dict() for key, obj in self.__objects.items()}
-        with open(self.__file_path, 'w') as f:
-            json.dump(obj_dict, f)
+        """Serializes '__objects' to the JSON file (path: '__file_path')."""
+        with open(self.__file_path, "w") as f:
+            json.dump({key: obj.to_dict() for key, obj in self.__objects.items()}, f)
 
     def reload(self):
-        """Deserialize the JSON file to __objects."""
+        """Deserializes the JSON file to '__objects'."""
         try:
-            with open(self.__file_path, 'r') as f:
-                obj_dict = json.load(f)
-                for key, value in obj_dict.items():
-                    class_name = key.split('.')[0]  # Extract class name
-                    if class_name in ['BaseModel', 'User', 'State', 'City', 'Amenity', 'Place', 'Review']:
-                        self.__objects[key] = eval(class_name)(**value)  # Dynamically create instances
-
-        except (FileNotFoundError, json.JSONDecodeError):
+            with open(self.__file_path, "r") as f:
+                data = json.load(f)
+                for key, obj_dict in data.items():
+                    class_name = key.split(".")[0]
+                    if class_name in self.CLASS_MAPPING:
+                        class_instance = self.CLASS_MAPPING[class_name]
+                        self.__objects[key] = class_instance(**obj_dict)
+        except (FileNotFoundError, json.decoder.JSONDecodeError):
             pass

@@ -17,8 +17,8 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     classes = {
-        "base": BaseModel, "user": User, "state": State,
-        "city": City, "amenity": Amenity, "place": Place, "review": Review
+        "BaseModel": BaseModel, "User": User, "State": State,
+        "City": City, "Amenity": Amenity, "Place": Place, "Review": Review
     }
 
     def do_create(self, arg):
@@ -40,7 +40,8 @@ class HBNBCommand(cmd.Cmd):
             print(f"** Error creating instance: {e} **")
 
     def do_show(self, arg):
-        """Prints the string representation of an instance based on the class name and id.
+        """
+        Prints the string representation of an instance based on the class name and id.
         """
         args = arg.split()
         if len(args) == 0:
@@ -83,8 +84,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, arg):
-        """Prints all string representation of all instances.
-        """
+        """Prints all string representation of all instances."""
         print_list = []
         if not arg:
             for value in storage.all().values():
@@ -97,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
                 if arg in key:
                     print_list.append(str(value))
 
-        print(print_list)
+        print('\n'.join(print_list))
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id.
