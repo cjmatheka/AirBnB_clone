@@ -53,16 +53,12 @@ class BaseModel:
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """
-        Updates the 'updated_at' attribute with the current datetime.
+        """Updates the 'updated_at' attribute with the current datetime.
         """
         self.updated_at = datetime.now()
         if self.__class__.storage:
             self.__class__.storage.save()
-
-            # If it's a new instance, add it to the storage
-            if self.id is None:
-                self.__class__.storage.new(self)
+            self.__class__.storage.new(self)
 
     def to_dict(self):
         """

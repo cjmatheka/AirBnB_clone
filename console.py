@@ -3,7 +3,7 @@
 """ AirBnB Clone Console """
 
 import cmd
-from models import storage
+from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -11,6 +11,9 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+
+storage = FileStorage()
+BaseModel.storage = storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -35,6 +38,7 @@ class HBNBCommand(cmd.Cmd):
 
         try:
             new_instance = self.classes[args[0]]()
+            print("Instance created:", new_instance)
             new_instance.save()
             print(new_instance.id)
         except Exception as e:

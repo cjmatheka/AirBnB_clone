@@ -13,10 +13,7 @@ from models.review import Review
 
 
 class FileStorage:
-    """
-    Serializes and deserializes instances to/from JSON file.
-    """
-
+    """Serializes and deserializes objects."""
     __file_path = "file.json"
     __objects = {}
 
@@ -36,15 +33,27 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        """Sets in '__objects' the 'obj' with key '<obj class name>.id'."""
+        """Sets in '__objects' the 'obj' with key '<obj class name>.id'.
+        Raises an exception if an object with the same key already exists.
+        """
+        print("Adding object to storage:", obj)
+        if obj is None:
+            raise ValueError("Object not found")
+
         key = f"{obj.__class__.__name__}.{obj.id}"
+        if key in self.__objects:
+            raise KeyError(f"Object with key '{key}' already exists")
         self.__objects[key] = obj
 
     def save(self):
         """Serializes '__objects' to the JSON file (path: '__file_path')."""
-        with open(self.__file_path, "w") as f:
-            json.dump({key: obj.to_dict()
-                       for key, obj in self.__objects.items()}, f)
+        print("Entering FileStorage save")
+        print("Objects right before saving:", FileStorage.__objects)
+        try:
+            with open(self.__file_path, "w") as f:
+                json.dump({key: obj.to_dict() for key, obj in self.__objects.items()}, f)
+        except (IOError, json.JSONDecodeError) as e:
+            print(f"Error saving to file: {e}")
 
     def reload(self):
         """Deserializes the JSON file to '__objects'."""
