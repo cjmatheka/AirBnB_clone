@@ -10,7 +10,8 @@ from datetime import datetime
 
 class BaseModel:
     """
-    A base model class defining common attributes and methods for other models.
+    A base model class defining common attributes and methods for
+    other models.
     """
     storage = None
 
@@ -24,7 +25,8 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """
         Initializes a new instance of the BaseModel.
-        Handles both regular initialization and reconstruction from a dictionary.
+        Handles both regular initialization and
+        reconstruction from a dictionary.
         """
 
         if kwargs:
@@ -33,7 +35,9 @@ class BaseModel:
                 if key != "__class__":
                     if key in ("created_at", "updated_at"):
                         # Convert ISO format strings back to datetime objects
-                        setattr(self, key, datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+                        setattr(self, key,
+                                datetime.strptime(value,
+                                                  "%Y-%m-%dT%H:%M:%S.%f"))
                     else:
                         setattr(self, key, value)
         else:
