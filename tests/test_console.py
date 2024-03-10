@@ -1,7 +1,9 @@
+#!/usr/bin/python3
+
 import unittest
 from unittest.mock import patch
 from io import StringIO
-from your_module import HBNBCommand  # Import your HBNBCommand class
+from console import HBNBCommand
 
 
 class TestHBNBCommand(unittest.TestCase):
