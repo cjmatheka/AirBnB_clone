@@ -22,7 +22,8 @@ class HBNBCommand(cmd.Cmd):
     }
 
     def do_create(self, arg):
-        """Creates a new instance, saves it (to the JSON file) and prints the id.
+        """
+        Creates a new instance, saves it and prints the id.
         """
         args = arg.split()
         if len(args) == 0:
@@ -41,7 +42,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """
-        Prints the string representation of an instance based on the class name and id.
+        Prints the string representation
+        of an instance based on the class name and id.
         """
         args = arg.split()
         if len(args) == 0:
