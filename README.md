@@ -48,11 +48,11 @@ b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0
 ```
 + update <object_type> <id> <attribute> <new_value>: Updates an existing object
 ```
-(hbnb) update BaseModel b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0 first_name "james"
+(hbnb) update BaseModel b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0 first_name james
 (hbnb) show BaseModel b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0
 [BaseModel] (b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0) {'id': 'b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0', 'created_at':
 datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.datetime(2024, 3, 11, 3, 20, 22, 51888),
-'first_name': '"james"'}
+'first_name': 'james'}
 (hbnb)
 ```
 + all <object_type>: Lists all objects of a type (e.g., all users)
