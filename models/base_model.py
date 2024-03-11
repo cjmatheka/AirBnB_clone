@@ -14,14 +14,6 @@ class BaseModel:
     A base model class defining common attributes and methods for
     other models.
     """
-    # storage = None
-    #
-    # @classmethod
-    # def set_storage(cls, storage):
-    #     """
-    #     Class method to set the storage object.
-    #     """
-    #     cls.storage = storage
 
     def __init__(self, *args, **kwargs):
         """
