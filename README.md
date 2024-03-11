@@ -32,16 +32,16 @@ The typical functions would include:
 + Deleting Objects: Commands to remove users, listings or other data.
 + Displaying Information: Commands to list all users, show available listings, or fetch other relevant data.
 
-**How to Start It:**  
+**Starting the interpreter:**  
 We will use a Python script (named console.py) to start the console:
 ```
 ./console.py
 (hbnb)
 ```
 
-**How to Use It:**    
+**Using it to Create Instances:**    
 The command interpreter would have its own specific commands. Here's a potential example structure:
-+ create <ModelClass>: Creates a new object
++ `create <ModelClass>`: Creates a new object
 ```
 Example:
 
@@ -49,7 +49,18 @@ Example:
 b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0
 (hbnb) 
 ```
-+ update <ModelClass> <id> <attribute> <new_value>: Updates an existing object
+**Using it to Show Instances of s Specific Class:**
++ `show <ModelClass> <id>`: Shows details of a specific object
+```
+Example:
+
+(hbnb) show BaseModel b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0
+[BaseModel] (b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0) {'id': 'b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0','created_at':
+datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.datetime(2024, 3, 11, 3, 18, 11, 877765)}
+(hbnb) 
+```
+**Using it to Update Instances:**
++ `update <ModelClass> <id> <attribute> <new_value>`: Updates an existing object
 ```
 Example:
 
@@ -60,7 +71,20 @@ datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.dateti
 'first_name': 'james'}
 (hbnb)
 ```
-+ all <ModelClass>: Lists all objects of a type (e.g., all users)
+**Using it to Update Instances:**
++ `destroy <ModelClass> <id>`: Deletes an existing object
+```
+Example:
+
+(hbnb)
+(hbnb) destroy BaseModel 950409fc-e4cc-45bc-bdbd-405ba89d800d
+(hbnb) show BaseModel 950409fc-e4cc-45bc-bdbd-405ba89d800d
+** no instance found **
+(hbnb) 
+```
+
+**Using it to List All Instances:**
++ `all <ModelClass>`: Lists all objects of a type (e.g., all users)
 ```
 Example:
 
@@ -71,16 +95,8 @@ datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.dateti
 (hbnb) 
 
 ```
-+ show <ModelClass> <id>: Shows details of a specific object (e.g., show listing 123)
-```
-Example:
-
-(hbnb) show BaseModel b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0
-[BaseModel] (b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0) {'id': 'b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0','created_at':
-datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.datetime(2024, 3, 11, 3, 18, 11, 877765)}
-(hbnb) 
-```
-+ quit: Quits the command interpreter.
+**Closing the Command Interpreter:**
++ `quit`: Quits the command interpreter.
 ```
 Example:
 
