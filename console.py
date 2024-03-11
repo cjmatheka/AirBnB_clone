@@ -12,9 +12,6 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
-# storage = storage()
-# BaseModel.set_storage(storage)
-
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
