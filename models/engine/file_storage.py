@@ -4,30 +4,12 @@
 
 import json
 from datetime import datetime
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.place import Place
-from models.review import Review
 
 
 class FileStorage:
     """Serializes and deserializes objects."""
     __file_path = "file.json"
     __objects = {}
-
-    # Mapping of class names to corresponding classes
-    CLASS_MAPPING = {
-        "BaseModel": BaseModel,
-        "User": User,
-        "State": State,
-        "City": City,
-        "Amenity": Amenity,
-        "Place": Place,
-        "Review": Review,
-    }
 
     def all(self):
         """Returns the dictionary '__objects'."""
@@ -65,8 +47,8 @@ class FileStorage:
                 data = json.load(f)
                 for key, obj_dict in data.items():
                     class_name = key.split(".")[0]
-                    if class_name in self.CLASS_MAPPING:
-                        class_instance = self.CLASS_MAPPING[class_name]
+                    if hasattr(self, class_name):
+                        class_instance = getattr(self, class_name)
                         self.__objects[key] = class_instance(**obj_dict)
         except (FileNotFoundError, json.decoder.JSONDecodeError):
             pass

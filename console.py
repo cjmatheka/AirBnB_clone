@@ -3,7 +3,7 @@
 """ AirBnB Clone Console """
 
 import cmd
-from models.engine.file_storage import FileStorage
+from models import storage
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -12,8 +12,8 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
-storage = FileStorage()
-BaseModel.storage = storage
+# storage = storage()
+# BaseModel.set_storage(storage)
 
 
 class HBNBCommand(cmd.Cmd):

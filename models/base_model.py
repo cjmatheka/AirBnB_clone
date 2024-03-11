@@ -6,6 +6,7 @@ Base class
 
 import uuid
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -13,14 +14,14 @@ class BaseModel:
     A base model class defining common attributes and methods for
     other models.
     """
-    storage = None
-
-    @classmethod
-    def set_storage(cls, storage):
-        """
-        Class method to set the storage object.
-        """
-        cls.storage = storage
+    # storage = None
+    #
+    # @classmethod
+    # def set_storage(cls, storage):
+    #     """
+    #     Class method to set the storage object.
+    #     """
+    #     cls.storage = storage
 
     def __init__(self, *args, **kwargs):
         """
@@ -56,9 +57,9 @@ class BaseModel:
         """Updates the 'updated_at' attribute with the current datetime.
         """
         self.updated_at = datetime.now()
-        if self.__class__.storage:
-            self.__class__.storage.save()
-            self.__class__.storage.new(self)
+        if storage:
+            storage.new(self)
+            storage.save()
 
     def to_dict(self):
         """
