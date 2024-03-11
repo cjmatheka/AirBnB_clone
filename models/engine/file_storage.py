@@ -36,7 +36,8 @@ class FileStorage:
         """Serializes '__objects' to the JSON file (path: '__file_path')."""
         try:
             with open(self.__file_path, "w") as f:
-                json.dump({key: obj.to_dict() for key, obj in self.__objects.items()}, f)
+                json.dump({key: obj.to_dict()
+                           for key, obj in self.__objects.items()}, f)
         except (IOError, json.JSONDecodeError) as e:
             print(f"Error saving to file: {e}")
 
