@@ -36,18 +36,23 @@ The typical functions would include:
 We will use a Python script (named console.py) to start the console:
 ```
 ./console.py
+(hbnb)
 ```
 
 **How to Use It:**    
 The command interpreter would have its own specific commands. Here's a potential example structure:
-+ create <object_type> <attributes>: Creates a new object
++ create <ModelClass>: Creates a new object
 ```
+Example:
+
 (hbnb) create BaseModel
 b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0
 (hbnb) 
 ```
-+ update <object_type> <id> <attribute> <new_value>: Updates an existing object
++ update <ModelClass> <id> <attribute> <new_value>: Updates an existing object
 ```
+Example:
+
 (hbnb) update BaseModel b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0 first_name james
 (hbnb) show BaseModel b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0
 [BaseModel] (b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0) {'id': 'b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0', 'created_at':
@@ -55,8 +60,10 @@ datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.dateti
 'first_name': 'james'}
 (hbnb)
 ```
-+ all <object_type>: Lists all objects of a type (e.g., all users)
++ all <ModelClass>: Lists all objects of a type (e.g., all users)
 ```
+Example:
+
 (hbnb) all BaseModel
 [BaseModel] (b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0) {'id': 'b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0', 'created_at':
 datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.datetime(2024, 3, 11, 3, 20, 22, 51888),
@@ -64,8 +71,10 @@ datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.dateti
 (hbnb) 
 
 ```
-+ show <object_type> <id>: Shows details of a specific object (e.g., show listing 123)
++ show <ModelClass> <id>: Shows details of a specific object (e.g., show listing 123)
 ```
+Example:
+
 (hbnb) show BaseModel b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0
 [BaseModel] (b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0) {'id': 'b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0','created_at':
 datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.datetime(2024, 3, 11, 3, 18, 11, 877765)}
@@ -73,6 +82,8 @@ datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.dateti
 ```
 + quit: Quits the command interpreter.
 ```
+Example:
+
 (hbnb) quit
 (envbnb) cjweb@ubuntu:~/Desktop/Software Engineering/AlxAfricaSE/AirBnB_clone$ 
 ```
