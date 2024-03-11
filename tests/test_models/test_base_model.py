@@ -82,7 +82,8 @@ class TestBaseModelInstantiation(unittest.TestCase):
     def test_instantiation_with_arguments_and_keyword_arguments(self):
         dtm = datetime.today()
         dtm_iso = dtm.isoformat()
-        model = BaseModel("12", id="345", created_at=dtm_iso, updated_at=dtm_iso)
+        model = BaseModel("12", id="345",
+                          created_at=dtm_iso, updated_at=dtm_iso)
         self.assertEqual(model.id, "345")
         self.assertEqual(model.created_at, dtm)
         self.assertEqual(model.updated_at, dtm)
@@ -150,7 +151,9 @@ class TestBaseModelToDict(unittest.TestCase):
     def test_to_dict_contains_correct_keys(self):
         model = BaseModel()
         keys = model.to_dict().keys()
-        self.assertSetEqual(set(keys), {"id", "created_at", "updated_at", "__class__"})
+        self.assertSetEqual(set(keys),
+                            {"id", "created_at",
+                             "updated_at", "__class__"})
 
     def test_to_dict_contains_added_attributes(self):
         model = BaseModel()
