@@ -36,8 +36,12 @@ class TestState(unittest.TestCase):
     def test_state_str_representation(self):
         """Test string representation of State object."""
         state = State(name='Texas')
-        expected_str = ("[State] ({}) {{'name': 'Texas', 'id': '{}', 'created_at': '{}',"
-                        "'updated_at': '{}'}}").format(state.id, state.created_at, state.updated_at)
+
+        expected_str = (
+            f"[State] ({state.id}) {{'name': 'Texas', 'id': '{state.id}', "
+            f"'created_at': '{state.created_at}', 'updated_at': '{state.updated_at}'}}"
+        )
+
         self.assertEqual(str(state), expected_str)
 
 

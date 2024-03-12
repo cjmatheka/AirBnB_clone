@@ -46,8 +46,12 @@ class TestReview(unittest.TestCase):
     def test_review_str_representation(self):
         """Test string representation of Review object."""
         review = Review(place_id='789', user_id='101', text='Nice place to stay')
-        expected_str = ("[Review] ({}) {{'place_id': '789', 'user_id': '101', 'text': 'Nice place to stay', 'id': '{}',"
-                        "'created_at': '{}', 'updated_at': '{}'}}").format(review.id, review.created_at, review.updated_at)
+
+        expected_str = (
+            f"[Review] ({review.id}) {{'place_id': '789', 'user_id': '101', 'text': 'Nice place to stay', "
+            f"'id': '{review.id}', 'created_at': '{review.created_at}', 'updated_at': '{review.updated_at}'}}"
+        )
+
         self.assertEqual(str(review), expected_str)
 
 

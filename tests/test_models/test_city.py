@@ -42,8 +42,12 @@ class TestCity(unittest.TestCase):
     def test_city_str_representation(self):
         """Test string representation of City object."""
         city = City(state_id='CA', name='Los Angeles')
-        expected_str = ("[City] ({}) {{'state_id': 'CA', 'name': 'Los Angeles', 'id': '{}',"
-                        "'created_at': '{}', 'updated_at': '{}'}}").format(city.id, city.created_at, city.updated_at)
+
+        expected_str = (
+            f"[City] ({city.id}) {{'state_id': 'CA', 'name': 'Los Angeles', "
+            f"'id': '{city.id}', 'created_at': '{city.created_at}', 'updated_at': '{city.updated_at}'}}"
+        )
+
         self.assertEqual(str(city), expected_str)
 
 

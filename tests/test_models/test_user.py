@@ -52,9 +52,11 @@ class TestUser(unittest.TestCase):
     def test_user_str_representation(self):
         """Test string representation of user object."""
         user = User(email='test@example.com', password='password', first_name='John', last_name='Doe')
-        expected_str = ("[User] ({}) {'email': 'test@example.com', 'password': 'password', 'first_name': 'John',"
-                        "'last_name': 'Doe', 'id': '{}', 'created_at': '{}',"
-                        "'updated_at': '{}'}").format(user.id, user.created_at, user.updated_at)
+        expected_str = (
+            f"[User] ({user.id}) {{'email': 'test@example.com', 'password': 'password', "
+            f"'first_name': 'John', 'last_name': 'Doe', 'id': '{user.id}', "
+            f"'created_at': '{user.created_at}', 'updated_at': '{user.updated_at}'}}"
+        )
         self.assertEqual(str(user), expected_str)
 
 

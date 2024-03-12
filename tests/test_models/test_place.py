@@ -25,7 +25,9 @@ class TestPlace(unittest.TestCase):
 
     def test_place_with_arguments(self):
         """Test Place creation with specific values."""
-        place = Place(city_id='NY', user_id='1', name='Cozy Apartment', description='Nice place', number_rooms=2, number_bathrooms=1, max_guest=4, price_by_night=100, latitude=40.7128, longitude=-74.0060, amenity_ids=[1, 2, 3])
+        place = Place(city_id='NY', user_id='1', name='Cozy Apartment', description='Nice place',
+                      number_rooms=2, number_bathrooms=1, max_guest=4, price_by_night=100, latitude=40.7128,
+                      longitude=-74.0060, amenity_ids=[1, 2, 3])
         self.assertEqual(place.city_id, 'NY')
         self.assertEqual(place.user_id, '1')
         self.assertEqual(place.name, 'Cozy Apartment')
@@ -86,11 +88,17 @@ class TestPlace(unittest.TestCase):
     def test_place_str_representation(self):
         """Test string representation of Place object."""
         place = Place(city_id='CA', user_id='2', name='Beach House', description='Beautiful house by the beach',
-                      number_rooms=3, number_bathrooms=2, max_guest=6, price_by_night=200, latitude=34.0522, longitude=-118.2437, amenity_ids=[4, 5, 6])
-        expected_str = ("[Place] ({}) {{'city_id': 'CA', 'user_id': '2', 'name': 'Beach House',"
-                        "'description': 'Beautiful house by the beach', 'number_rooms': 3, 'number_bathrooms': 2,"
-                        "'max_guest': 6, 'price_by_night': 200, 'latitude': 34.0522, 'longitude': -118.2437,"
-                        "'amenity_ids': [4, 5, 6], 'id': '{}', 'created_at': '{}', 'updated_at': '{}'}}").format(place.id, place.created_at, place.updated_at)
+                      number_rooms=3, number_bathrooms=2, max_guest=6, price_by_night=200, latitude=34.0522,
+                      longitude=-118.2437, amenity_ids=[4, 5, 6])
+
+        expected_str = (
+            f"[Place] ({place.id}) {{'city_id': 'CA', 'user_id': '2', 'name': 'Beach House', "
+            f"'description': 'Beautiful house by the beach', 'number_rooms': 3, 'number_bathrooms': 2, "
+            f"'max_guest': 6, 'price_by_night': 200, 'latitude': 34.0522, 'longitude': -118.2437, "
+            f"'amenity_ids': [4, 5, 6], 'id': '{place.id}', 'created_at': '{place.created_at}', "
+            f"'updated_at': '{place.updated_at}'}}"
+        )
+
         self.assertEqual(str(place), expected_str)
 
 

@@ -36,8 +36,10 @@ class TestAmenity(unittest.TestCase):
     def test_amenity_str_representation(self):
         """Test string representation of Amenity object."""
         amenity = Amenity(name='Gym')
-        expected_str = ("[Amenity] ({}) {'name': 'Gym', 'id': '{}', 'created_at': '{}',"
-                        "'updated_at': '{}'}").format(amenity.id, amenity.created_at, amenity.updated_at)
+        expected_str = (
+            f"[Amenity] ({amenity.id}) {{'name': 'Gym', 'id': '{amenity.id}', "
+            f"'created_at': '{amenity.created_at}', 'updated_at': '{amenity.updated_at}'}}"
+        )
         self.assertEqual(str(amenity), expected_str)
 
 
