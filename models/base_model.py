@@ -40,8 +40,7 @@ class BaseModel:
             self.updated_at = datetime.now()
 
     def __str__(self):
-        """
-        Returns a string representation of the BaseModel.
+        """Returns a string representation of the BaseModel.
         """
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
@@ -50,12 +49,12 @@ class BaseModel:
         """
         self.updated_at = datetime.now()
         if storage:
-            storage.new(self)
             storage.save()
+            storage.new(self)
 
     def to_dict(self):
         """
-        Returns a dictionary representation of the BaseModel instance.
+        Returns a dictionary representation of the Model instance.
         """
         model_dict = self.__dict__.copy()  # Get all instance attributes
         model_dict["__class__"] = self.__class__.__name__  # Add class name
