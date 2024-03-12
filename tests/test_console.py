@@ -11,11 +11,10 @@ Unitest cases for console
     Test_destroy
     Test_update
 """
-
+from ..console import HBNBCommand
 import unittest
 from unittest.mock import patch
 from io import StringIO
-from console import HBNBCommand
 
 
 class TestHBNBCommand(unittest.TestCase):
