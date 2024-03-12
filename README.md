@@ -40,8 +40,20 @@ We will use a Python script (named console.py) to start the console:
 (hbnb)
 ```
 
-**Using it to Create Instances:**    
-The command interpreter would have its own specific commands. Here's a potential example structure:
+**Displaying Available Commands:**
++ The command interpreter has its own specific commands
+```
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb) 
+
+```
+
+**Using it to Create Instances:**
 + `create <ModelClass>`: Creates a new object
 ```
 Example:
@@ -50,6 +62,7 @@ Example:
 b17d9911-ae6f-4dbf-8dc1-8c1faf6047b0
 (hbnb) 
 ```
+
 **Using it to Show Instances of s Specific Class:**
 + `show <ModelClass> <id>`: Shows details of a specific object
 ```
@@ -60,6 +73,7 @@ Example:
 datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.datetime(2024, 3, 11, 3, 18, 11, 877765)}
 (hbnb) 
 ```
+
 **Using it to Update Instances:**
 + `update <ModelClass> <id> <attribute> <new_value>`: Updates an existing object
 ```
@@ -72,6 +86,7 @@ datetime.datetime(2024, 3, 11, 3, 18, 11, 877749), 'updated_at': datetime.dateti
 'first_name': 'james'}
 (hbnb)
 ```
+
 **Using it to Update Instances:**
 + `destroy <ModelClass> <id>`: Deletes an existing object
 ```
