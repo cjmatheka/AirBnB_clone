@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 """
 Unitest cases for console
@@ -11,7 +11,7 @@ Unitest cases for console
     Test_destroy
     Test_update
 """
-from ..console import HBNBCommand
+from console import HBNBCommand
 import unittest
 from unittest.mock import patch
 from io import StringIO
