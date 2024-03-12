@@ -1,6 +1,6 @@
 # 0x00. AirBnB clone - The console  
 This is exactly as it sounds, an airBnB clone.
-![](images/Airbnb-Logo.wine.png)
+![](images/console.jpg)
 
 ## Project Overview 
 A web platform replicating the core features of Airbnb, allowing hosts to list their accommodations and guests to
