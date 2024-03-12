@@ -1,1 +1,1 @@
-{"User.6e2022d6-4d25-44eb-971c-9ec78527ae95": {"id": "6e2022d6-4d25-44eb-971c-9ec78527ae95", "created_at": "2024-03-12T08:14:20.383570", "updated_at": "2024-03-12T08:14:20.383581", "email": "", "password": "", "first_name": "", "last_name": "", "__class__": "User"}}
+{"BaseModel.ef4fe95c-ffc6-48d1-bb56-3535778dd7f4": {"id": "ef4fe95c-ffc6-48d1-bb56-3535778dd7f4", "created_at": "2024-03-12T08:35:44.515873", "updated_at": "2024-03-12T08:35:44.515887", "__class__": "BaseModel"}}

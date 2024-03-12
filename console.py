@@ -98,7 +98,6 @@ class HBNBCommand(cmd.Cmd):
             for key, value in storage.all().items():
                 if arg in key:
                     print_list.append(str(value))
-
         print('\n'.join(print_list))
 
     def do_update(self, arg):
