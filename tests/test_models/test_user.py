@@ -50,7 +50,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user_dict['__class__'], 'User')
 
     def test_user_str_representation(self):
-        """Test string representation of user object."""
+        """Test string representation of user object"""
         user = User(email='test@example.com', password='password', first_name='John', last_name='Doe')
         expected_str = (
             f"[User] ({user.id}) {{'email': 'test@example.com', 'password': 'password', "

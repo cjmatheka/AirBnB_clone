@@ -71,6 +71,12 @@ class TestHBNBCommand(unittest.TestCase):
             output = fake_out.getvalue().strip()
             self.assertEqual(output, "** no instance found **")
 
+    def test_EOF(self):
+        h = "EOF signal to exit the program."
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("help EOF"))
+            self.assertEqual(h, output.getvalue().strip())
+
 
 if __name__ == '__main__':
     unittest.main()

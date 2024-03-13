@@ -49,8 +49,8 @@ class BaseModel:
         """
         self.updated_at = datetime.now()
         if storage:
-            storage.save()
             storage.new(self)
+            storage.save()
 
     def to_dict(self):
         """
